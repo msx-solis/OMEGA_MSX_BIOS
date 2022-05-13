@@ -25,6 +25,7 @@ dd if=/dev/zero ibs=1k count=32 | tr "\000" "\377" >> omega_msx2+_all_ntsc.bin #
 dd if=/dev/zero ibs=1k count=32 | tr "\000" "\377" >> omega_msx2+_all_ntsc.bin
 cat ${SYSTEM_ROMS_DIR}/phc-70fd2_fmbasic.rom >> omega_msx2+_all_ntsc.bin #16k
 dd if=/dev/zero ibs=1k count=32 | tr "\000" "\377" >> omega_msx2+_all_ntsc.bin
+# to patch msx2+ at low BIOS set
 # patch the keys
 if [ "$PATCH_KEYS" -eq "1" ]; then
   dd if=int_keys_patch.bin of=omega_msx2+_all_ntsc.bin bs=1 seek=3529 conv=notrunc
@@ -50,7 +51,8 @@ dd if=/dev/zero ibs=1k count=32 | tr "\000" "\377" >> omega_msx2+_all_ntsc.bin #
 dd if=/dev/zero ibs=1k count=32 | tr "\000" "\377" >> omega_msx2+_all_ntsc.bin
 cat ${SYSTEM_ROMS_DIR}/phc-70fd2_fmbasic.rom >> omega_msx2+_all_ntsc.bin #16k
 dd if=/dev/zero ibs=1k count=32 | tr "\000" "\377" >> omega_msx2+_all_ntsc.bin
-# patch the keys
+# to patch msx2+ at high BIOS set
+# patch the keys 
 if [ "$PATCH_KEYS" -eq "1" ]; then
   dd if=int_keys_patch.bin of=omega_msx2+_all_ntsc.bin bs=1 seek=265673 conv=notrunc
 fi

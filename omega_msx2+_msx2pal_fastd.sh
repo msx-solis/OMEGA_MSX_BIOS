@@ -15,12 +15,12 @@ PATCH_KEYS=1
 PATCH_BACKSLASH=1
 PATCH_VERSION=1
 
-# copy the second set of MSX2 NTSC ROMs
-cat ${SYSTEM_ROMS_DIR}/phc-70fd2_basic-bios2p.rom >> ${OUTPUT_FILE} #32k
+# copy the second set of MSX2+ NTSC ROMs
+cat ${SYSTEM_ROMS_DIR}/phc-70fd2_basic-bios2p.rom > ${OUTPUT_FILE} #32k
 dd if=/dev/zero ibs=1k count=32 | tr "\000" "\377" >> ${OUTPUT_FILE} #32 -64k
 cat ${SYSTEM_ROMS_DIR}/phc-70fd2_msx2psub.rom >> ${OUTPUT_FILE} #16k -80k
 cat ${SYSTEM_ROMS_DIR}/phc-70fd2_kanjibasic.rom >> ${OUTPUT_FILE} #32k -112k
-dd if=/dev/zero ibs=1k count=32 | tr "\000" "\377" >> ${OUTPUT_FILE} #32 -148k
+dd if=/dev/zero ibs=1k count=32 | tr "\000" "\377" >> ${OUTPUT_FILE} #32 -144k
 cat ${SYSTEM_ROMS_DIR}/fastdrom11/fastdrom_cdx2.eprom >> ${OUTPUT_FILE} #16k -160k
 dd if=/dev/zero ibs=1k count=32 | tr "\000" "\377" >> ${OUTPUT_FILE} # 32k - 192k
 dd if=/dev/zero ibs=1k count=16 | tr "\000" "\377" >> ${OUTPUT_FILE} #16k - 208k
@@ -29,11 +29,11 @@ cat ${SYSTEM_ROMS_DIR}/phc-70fd2_basickun.rom >> ${OUTPUT_FILE} #16k - 240 k
 dd if=/dev/zero ibs=1k count=16 | tr "\000" "\377" >> ${OUTPUT_FILE} #16k - 256 K
 # patch the keys
 if [ "$PATCH_KEYS" -eq "1" ]; then
-  dd if=int_keys_patch.bin of=${OUTPUT_FILE} bs=1 seek=265673 conv=notrunc
+  dd if=int_keys_patch.bin of=${OUTPUT_FILE} bs=1 seek=3529 conv=notrunc
 fi
 # patch the backslash
 if [ "$PATCH_BACKSLASH" -eq "1" ]; then
-  dd if=backslash_patch.bin of=${OUTPUT_FILE} bs=1 seek=269983 conv=notrunc
+  dd if=backslash_patch.bin of=${OUTPUT_FILE} bs=1 seek=7839 conv=notrunc
 fi
 
 # High half with MSX2 PAL BIOS 

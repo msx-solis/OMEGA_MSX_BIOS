@@ -6,14 +6,13 @@
 
 SYSTEM_ROMS_DIR=systemroms
 CBIOS_ROMS_DIR=cbios-0.29a/roms
-# set PATCH_KEYS to 1 to patch the keyboard in Japanese MSX2/MSX2+ ROMs
-# to match the international keyboard layout
 
 # Create MSX1 BIOS Int NTSC image
 
 OUTPUT_FILE=omega_msx1_msx2_pal.bin
 # copy MSX1 PAL ROMs
-cat ${SYSTEM_ROMS_DIR}/vg8000_basic-bios1.rom > ${OUTPUT_FILE}
+cat ${SYSTEM_ROMS_DIR}/svi-728es_basic-bios1.rom > ${OUTPUT_FILE}  #pal
+
 dd if=/dev/zero ibs=1k count=224 | tr "\000" "\377" >> ${OUTPUT_FILE}
 
 
