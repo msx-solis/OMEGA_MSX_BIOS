@@ -4,7 +4,7 @@
 
 #both include fmbasic.rom y fastdrom_cdx2-1.1
 
-OUTPUT_FILE=omega_msx2+_msx2pal_fm_fastd.bin
+OUTPUT_FILE=omega_msx2+fm_msx2pal.bin
 SYSTEM_ROMS_DIR=systemroms
 CBIOS_ROMS_DIR=cbios-0.29a/roms
 # Low half with all international mods
@@ -21,7 +21,8 @@ dd if=/dev/zero ibs=1k count=32 | tr "\000" "\377" >> ${OUTPUT_FILE} #32 -64k
 cat ${SYSTEM_ROMS_DIR}/phc-70fd2_msx2psub.rom >> ${OUTPUT_FILE} #16k -80k             msx2+ subrom bios
 cat ${SYSTEM_ROMS_DIR}/phc-70fd2_kanjibasic.rom >> ${OUTPUT_FILE} #32k -112k          kanji bios
 dd if=/dev/zero ibs=1k count=32 | tr "\000" "\377" >> ${OUTPUT_FILE} #32 -148k
-cat ${SYSTEM_ROMS_DIR}/fastdrom11/fastdrom_cdx2.eprom >> ${OUTPUT_FILE} #16k -160k    fastdisk cdx-2 1.1 diskbasic
+dd if=/dev/zero ibs=1k count=16 | tr "\000" "\377" >> ${OUTPUT_FILE} #16 -160k        space for disk rom
+#cat ${SYSTEM_ROMS_DIR}/fastdrom11/fastdrom_cdx2.eprom >> ${OUTPUT_FILE} #16k -160k    fastdisk cdx-2 1.1 diskbasic (disabled)
 dd if=/dev/zero ibs=1k count=32 | tr "\000" "\377" >> ${OUTPUT_FILE} # 32k - 192k
 dd if=/dev/zero ibs=1k count=16 | tr "\000" "\377" >> ${OUTPUT_FILE} #16k - 208k
 cat ${SYSTEM_ROMS_DIR}/phc-70fd2_fmbasic.rom >> ${OUTPUT_FILE} #16k - 224k            fmbasic
@@ -42,9 +43,11 @@ cat ${SYSTEM_ROMS_DIR}/nms8250_basic-bios2.rom >> ${OUTPUT_FILE} # 32k          
 dd if=/dev/zero ibs=1k count=32 | tr "\000" "\377" >> ${OUTPUT_FILE} #32k - 64k
 cat ${SYSTEM_ROMS_DIR}/nms8250_msx2sub.rom >> ${OUTPUT_FILE} #16k - 80k               msx2 subrom bios
 dd if=/dev/zero ibs=1k count=64 | tr "\000" "\377" >> ${OUTPUT_FILE} #64k - 144k 
-cat ${SYSTEM_ROMS_DIR}/fastdrom11/fastdrom_cdx2.eprom >> ${OUTPUT_FILE} #16k -160k    fastdisk cdx-2 1.1 diskbasic
+dd if=/dev/zero ibs=1k count=16 | tr "\000" "\377" >> ${OUTPUT_FILE} #16 -160k        space for disk rom
+#cat ${SYSTEM_ROMS_DIR}/fastdrom11/fastdrom_cdx2.eprom >> ${OUTPUT_FILE} #16k -160k    fastdisk cdx-2 1.1 diskbasic (disabled)
 dd if=/dev/zero ibs=1k count=48 | tr "\000" "\377" >> ${OUTPUT_FILE} # 48k - 208k
-cat ${SYSTEM_ROMS_DIR}/phc-70fd2_fmbasic.rom >> ${OUTPUT_FILE} #16k - 224k            fmbasic
+dd if=/dev/zero ibs=1k count=16 | tr "\000" "\377" >> ${OUTPUT_FILE} #16 -224k        space for fmbasic
+#cat ${SYSTEM_ROMS_DIR}/phc-70fd2_fmbasic.rom >> ${OUTPUT_FILE} #16k - 224k            fmbasic (disabled)
 dd if=/dev/zero ibs=1k count=32 | tr "\000" "\377" >> ${OUTPUT_FILE} #32k
 
 
