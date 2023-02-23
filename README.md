@@ -1,11 +1,11 @@
 # OMEGA_MSX_BIOS
-Lot of scripts and configured BIOS for the OMEGA MSX
+Many scripts and configured BIOS for the OMEGA MSX
 ====================================================
 
-Instructions for executing the scripts: 
-Unzip the systemroms.zip and cbios-0.29a.zip into folders.
+Instructions for the correct execution of the scripts: 
+Unzip the systemroms.zip and cbios-0.29a.zip.
 Copy some needed files to the systemroms\ folder.
-Modify and/or execute the scripts from Linux.
-And just burn them with an eprom programmer.
+Modify and/or execute the scripts from a Linux system.
+And finally just burn it with an eprom programmer.
 
-Some other descriptions inside the scripts.
+Some more details inside the scripts.
